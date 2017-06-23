@@ -19,11 +19,11 @@ bot.registry.registerCommandsIn(__dirname + "/commands");
 bot.on("unhandledRejection", console.error);
 
 //file require for auth key since i'm not pushing it to git
-const keys = require("./privates.js");
+const data = require("./resources/privates.js");
 
 
 //lesgoo
-bot.login(keys.auth);
+bot.login(data.auth.key);
 
 bot.on("message", (message) => {
     console.log(message.content);
