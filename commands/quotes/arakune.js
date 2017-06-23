@@ -14,12 +14,11 @@ class ArakuneQuoteCommand extends commando.Command {
     }
 
     async run(message, args) {
-        console.log(masterQuotes);
         if (args.includes("insult")) {
-            message.channel.send(findQuote(args.replace("insult ", ""), masterQuotes));
+            message.channel.send(findQuote(args.replace("insult ", ""), masterQuotes.quotes));
         }
         else {
-            message.channel.send(quote(masterQuotes));
+            message.channel.send(quote(masterQuotes.quotes));
         }
     }
 }
