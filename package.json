@@ -1,0 +1,23 @@
+{
+  "name": "elot",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "discord.js": "^11.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/womackx/realCouncilBot.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/womackx/realCouncilBot/issues"
+  },
+  "homepage": "https://github.com/womackx/realCouncilBot#readme"
+}
