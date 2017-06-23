@@ -1,0 +1,8 @@
+Integrate with mbr api
+Create a realCouncil league system
+    Point system   
+    Pairing system
+    Needs fleshing out
+Assigning particular roles
+    as well as removing
+
