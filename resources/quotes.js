@@ -91,7 +91,5 @@ sorry i dont speak french
 i would cosplay as teldo
 i beat ninjas worse than i beat communism
 down syndrome
-honestly rifle, ur probably the person here who's most like me.
-
-`.split('\n')
+honestly rifle, ur probably the person here who's most like me.`.split('\n')
 };
