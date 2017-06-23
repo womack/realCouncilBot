@@ -1,5 +1,5 @@
 const commando = require("discord.js-commando");
-const adminList = require("./adminList.js");
+const adminList = require("../../resources/adminList.js");
 
 class ClearCommand extends commando.Command {
     constructor(client) {
