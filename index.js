@@ -25,6 +25,9 @@ const keys = require("./privates.js");
 //lesgoo
 bot.login(keys.auth);
 
+bot.on("message", (message) => {
+    console.log(message.content);
+});
 
 
 

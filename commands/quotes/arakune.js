@@ -9,7 +9,7 @@ class ArakuneQuoteCommand extends commando.Command {
             name: "arakune",
             group: "quotes",
             memberName: "arakune",
-            description: "Spouts a glorious arakune quote"
+            description: "Spouts a glorious Arakune quote!\n Use insult <name> to refine your quote!"
         });
     }
 
@@ -30,14 +30,19 @@ var quote = function (quotesInput) {
 }
 
 var findQuote = function (name, quotes) {
-    var tmpquotes = "idk who that even is".split("\n");
+    var tmpquotes = "".split("\n");
     for (var i = 0; i < quotes.length; i++) {
         var tmp = quotes[i];
         if (tmp.includes(name)) {
             tmpquotes.push(tmp);
         }
     }
-    return quote(tmpquotes);
+    if (tmpquotes.length < 1) {
+        return "idk who that even is";
+    }
+    else {
+        return quote(tmpquotes);
+    }
 }
 
 module.exports = ArakuneQuoteCommand;

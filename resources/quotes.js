@@ -71,5 +71,27 @@ americas the best country because im in it
 zab made the mistake of attempting to exist poorly
 maylon you fat fuck
 moment 37 is within the realm of my gaming potential
-ur retarded if you think anything else`.split('\n')
+ur retarded if you think anything else
+i hear EU servers in this game suck
+aren't jackazzm jokes just like "i feel pretty neutral about this"
+winghaven i think the worst ive ever said about u is that ur a worse averse
+melee's sick as fuck
+nyys banging rifles wife
+mini is secretly nyys child :pogchamp:
+im VERY nice guy
+im actually my own dog
+i think my mom might just be stupid
+womack ur bad
+its not arrogance
+whats the most OPTIMAL way of shaking your dick so you dont get them last few drops on your shorts?
+my brain just doesnt work
+joltz 1v1 me for honor you fuckin faggot fuck
+suck on my north oil
+sorry i dont speak french
+i would cosplay as teldo
+i beat ninjas worse than i beat communism
+down syndrome
+honestly rifle, ur probably the person here who's most like me.
+
+`.split('\n')
 };
