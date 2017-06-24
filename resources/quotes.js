@@ -1,6 +1,5 @@
 module.exports = {
-    quotes:
-    `100% chance to win every game
+  quotes: `100% chance to win every game
 tractor beam is literally impossible to dodge
 nyy u might have down syndrome
 my mom doesnt have knees
@@ -91,5 +90,5 @@ sorry i dont speak french
 i would cosplay as teldo
 i beat ninjas worse than i beat communism
 down syndrome
-honestly rifle, ur probably the person here who's most like me.`.split('\n')
+honestly rifle, ur probably the person here who's most like me.`.split("\n")
 };
