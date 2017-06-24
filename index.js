@@ -27,9 +27,9 @@ bot.login(data.auth.key);
 
 console.log("Online");
 
-bot.on("message", (message) => {
-    // console.log(message.content);
-});
+// bot.on("message", (message) => {
+//      console.log(message.content);
+// });
 
 
 
