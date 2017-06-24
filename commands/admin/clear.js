@@ -1,9 +1,6 @@
 const commando = require("discord.js-commando");
 const adminList = require("../../resources/adminList.js");
 
-
-
-
 function clearIDSpam(message, id, amount) {
     message.channel.fetchMessages({
     }).then((messages) => {
