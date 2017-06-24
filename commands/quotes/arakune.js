@@ -1,14 +1,14 @@
 const commando = require("discord.js-commando");
 const masterQuotes = require("../../resources/quotes.js");
 
-var quote = function(quotesInput) {
+var quote = function (quotesInput) {
   return quotesInput[Math.floor(Math.random() * quotesInput.length)];
 };
 
-var findQuote = function(name, quotes) {
+var findQuote = function (name, quotes) {
   var tmpquotes = [];
   for (var i = 0; i < quotes.length; i++) {
-    if (quotes[i].includes(name)) {
+    if (quotes[i].toLowerCase().includes(name.toLowerCase())) {
       tmpquotes.push(quotes[i]);
     }
   }
@@ -28,7 +28,7 @@ class ArakuneQuoteCommand extends commando.Command {
       group: "quotes",
       memberName: "arakune",
       description:
-        "Spouts a glorious Arakune quote!\n Use insult <name> to refine your quote!"
+      "Spouts a glorious Arakune quote!\n Use insult <name> to refine your quote!"
     });
   }
 
