@@ -34,7 +34,7 @@ class ClearCommand extends commando.Command {
 
     async run(message, args) {
 
-        if (adminList.list.indexOf(message.author.username) != -1) {
+        if (adminList.list.indexOf(message.author.username) !== -1) {
             if (args === "!arakune") {
                 clearCommandSpam(message, args);
             }
