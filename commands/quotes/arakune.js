@@ -6,7 +6,7 @@ var quote = function (quotesInput) {
 };
 
 var findQuote = function (name, quotes) {
-    var tmpquotes = "".split("\n");
+    var tmpquotes = [];
     for (var i = 0; i < quotes.length; i++) {
         if (quotes[i].includes(name)) {
             tmpquotes.push(quotes[i]);
