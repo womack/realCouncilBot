@@ -25,16 +25,14 @@ class ArakuneQuoteCommand extends commando.Command {
 
 
 var quote = function (quotesInput) {
-    var a = Math.floor(Math.random() * quotesInput.length);
-    return quotesInput[a]
-}
+    return quotesInput[Math.floor(Math.random() * quotesInput.length)];
+};
 
 var findQuote = function (name, quotes) {
     var tmpquotes = "".split("\n");
     for (var i = 0; i < quotes.length; i++) {
-        var tmp = quotes[i];
-        if (tmp.includes(name)) {
-            tmpquotes.push(tmp);
+        if (quotes[i].includes(name)) {
+            tmpquotes.push(quotes[i]);
         }
     }
     if (tmpquotes.length < 1) {
@@ -43,6 +41,6 @@ var findQuote = function (name, quotes) {
     else {
         return quote(tmpquotes);
     }
-}
+};
 
 module.exports = ArakuneQuoteCommand;

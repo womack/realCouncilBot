@@ -2,7 +2,7 @@
  * Created by EWomack on 23/06/2017.
  */
 //setting up bot with commando library
-const commando = require('discord.js-commando');
+const commando = require("discord.js-commando");
 const bot = new commando.Client();
 //random commands, currently only dice
 bot.registry.registerGroup("random", "Random");
@@ -16,7 +16,7 @@ bot.registry.registerDefaults();
 
 //registering all the commands in the directory
 bot.registry.registerCommandsIn(__dirname + "/commands");
-bot.on("unhandledRejection", console.error);
+
 
 //file require for auth key since i'm not pushing it to git
 const data = require("./resources/privates.js");
@@ -26,7 +26,7 @@ const data = require("./resources/privates.js");
 bot.login(data.auth.key);
 
 bot.on("message", (message) => {
-    console.log(message.content);
+    // console.log(message.content);
 });
 
 

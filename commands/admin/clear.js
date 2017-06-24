@@ -30,8 +30,8 @@ function clearIDSpam(message, id, amount) {
     message.channel.fetchMessages({
     }).then((messages) => {
 
-        messages = messages.filter(m => String(m.author.id) == id).array().slice(0, amount);
-        message.channel.bulkDelete(messages).catch(error => console.log(error.stack));
+        messages = messages.filter((m) => String(m.author.id) == id).array().slice(0, amount);
+        message.channel.bulkDelete(messages);
         //  .array().slice(0, clearA);
         // messages = messages.filter(m => m.author.id === filterBy).array().slice(0, clearA);
     }).catch();
@@ -39,8 +39,8 @@ function clearIDSpam(message, id, amount) {
 function clearCommandSpam(message, command) {
     message.channel.fetchMessages({
     }).then((messages) => {
-        messages = messages.filter(m => m.content == command);
-        message.channel.bulkDelete(messages).catch(error => console.log(error.stack));
+        messages = messages.filter((m) => m.content == command);
+        message.channel.bulkDelete(messages);
     }).catch();
 }
 
