@@ -11,18 +11,20 @@ var quote = function (quotesInput) {
 
 var findQuote = function (name, quotes) {
   var tmpquotes = [];
-  for (var i = 0; i < quotes.length; i++) {
-    if (quotes[i].toLowerCase().includes(name.toLowerCase())) {
-      tmpquotes.push(quotes[i]);
+  if (name.includes("arak")) {
+    tmpquotes.push("i'd never insult a god");
+  }
+  else {
+    for (var i = 0; i < quotes.length; i++) {
+      if (quotes[i].toLowerCase().includes(name.toLowerCase())) {
+        tmpquotes.push(quotes[i]);
+      }
+    }
+    if (tmpquotes.length < 1) {
+      tmpquotes.push("idk who that even is");
     }
   }
-  if (name.includes("arak")) {
-    return "i'd never insult a god";
-  } else if (tmpquotes.length < 1) {
-    return "idk who that even is";
-  } else {
-    return quote(tmpquotes);
-  }
+  return quote(tmpquotes);
 };
 
 var markovQuote = function () {
