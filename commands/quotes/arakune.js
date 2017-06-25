@@ -1,22 +1,35 @@
 const commando = require("discord.js-commando");
 const masterQuotes = require("../../resources/quotes.js");
+var Markovchain = require("markovchain");
+var fs = require("fs");
+var markovQuotes = new Markovchain(fs.readFileSync("resources/arakune.txt", "utf8"));
+var starters = ["im", "i", "the", "Im", "The", "we"];
 
-var quote = function(quotesInput) {
+var quote = function (quotesInput) {
   return quotesInput[Math.floor(Math.random() * quotesInput.length)];
 };
 
-var findQuote = function(name, quotes) {
+var findQuote = function (name, quotes) {
   var tmpquotes = [];
-  for (var i = 0; i < quotes.length; i++) {
-    if (quotes[i].includes(name)) {
-      tmpquotes.push(quotes[i]);
+  if (name.includes("arak")) {
+    tmpquotes.push("i'd never insult a god");
+  }
+  else {
+    for (var i = 0; i < quotes.length; i++) {
+      if (quotes[i].toLowerCase().includes(name.toLowerCase())) {
+        tmpquotes.push(quotes[i]);
+      }
+    }
+    if (tmpquotes.length < 1) {
+      tmpquotes.push("idk who that even is");
     }
   }
-  if (tmpquotes.length < 1) {
-    return "idk who that even is";
-  } else {
-    return quote(tmpquotes);
-  }
+  return quote(tmpquotes);
+};
+
+var markovQuote = function () {
+  var startNum = Math.floor(Math.random() * starters.length);
+  return markovQuotes.start(starters[startNum]).end().process();
 };
 
 class ArakuneQuoteCommand extends commando.Command {
@@ -26,12 +39,15 @@ class ArakuneQuoteCommand extends commando.Command {
       group: "quotes",
       memberName: "arakune",
       description:
-        "Spouts a glorious Arakune quote!\n Use insult <name> to refine your quote!"
+      "Spouts a glorious Arakune quote!\n Use insult <name> to refine your quote!"
     });
   }
 
   async run(message, args) {
-    if (args.includes("insult")) {
+    if (args.includes("markov")) {
+      message.channel.send(markovQuote());
+    }
+    else if (args.includes("insult")) {
       message.channel.send(
         findQuote(args.replace("insult ", ""), masterQuotes.quotes)
       );

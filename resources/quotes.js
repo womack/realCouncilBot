@@ -39,7 +39,7 @@ i can javelin panic flask with 100% consistency
 i wish i could go back to a time when my opponents didnt realise how good i am
 -_-
 EU brain lag LUL
-if you get below 180 ur cheating
+if you get below 180ms ur cheating
 i think ill go pro at reacting
 how can one man give so few fucks
 im actually *so* sick
@@ -90,5 +90,17 @@ sorry i dont speak french
 i would cosplay as teldo
 i beat ninjas worse than i beat communism
 down syndrome
-honestly rifle, ur probably the person here who's most like me.`.split("\n")
+honestly rifle, ur probably the person here who's most like me.
+verosk started a shitpost because he has autism
+verosk sux
+joltz and klerny aren't even of comparable skill to me
+blankkz > klerny
+joltz is my dad
+the power comes from joltz fish face
+joltz is his own mom
+joltz ur reading comprehension is so low
+me > iska
+if nyy didnt exist, intolerant would be like onslaught
+wasted potential is the nyy special
+bloods 4head has transcended humanity`.split("\n")
 };
