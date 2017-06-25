@@ -15,19 +15,5 @@ bot.registry.registerDefaults();
 //registering all the commands in the directory
 bot.registry.registerCommandsIn(__dirname + "/commands");
 bot.login(data.auth.key);
-
 console.log("Online");
 
-bot.on("message", message => {
-  if (message.content.includes("saveChat")) {
-    //   console.log(message.channel.);
-    //   .fetchMessages({ limit: 99 })
-    //     .then(messages => {
-    // console.log(messages.size);
-    //         messages = messages.filter(m => m.author.username.includes("womackx"));
-    //         console.log(messages.size);
-    //       })
-    //       .catch();
-    //   }
-  }
-});

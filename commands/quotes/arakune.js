@@ -2,7 +2,7 @@ const commando = require("discord.js-commando");
 const masterQuotes = require("../../resources/quotes.js");
 var Markovchain = require("markovchain");
 var fs = require("fs");
-quotes = new Markovchain(fs.readFileSync("resources/arakune.txt", "utf8"));
+var markovQuote = new Markovchain(fs.readFileSync("resources/arakune.txt", "utf8"));
 var starters = ["im", "i", "the", "Im", "The", "we"];
 
 var quote = function (quotesInput) {
@@ -27,8 +27,8 @@ var findQuote = function (name, quotes) {
 
 var markovQuote = function () {
   var startNum = Math.floor(Math.random() * starters.length);
-  return quotes.start(starters[startNum]).end().process();
-}
+  return markovQuote.start(starters[startNum]).end().process();
+};
 
 class ArakuneQuoteCommand extends commando.Command {
   constructor(client) {
