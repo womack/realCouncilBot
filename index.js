@@ -11,6 +11,8 @@ bot.registry.registerGroup("random", "Random");
 bot.registry.registerGroup("quotes", "Quotes");
 //admin functionality
 bot.registry.registerGroup("admin", "Admin");
+//admin functionality
+bot.registry.registerGroup("roles", "Roles");
 //default commands, not sure if beneficial
 bot.registry.registerDefaults();
 //registering all the commands in the directory
