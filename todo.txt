@@ -8,3 +8,4 @@ Assigning particular roles
 pausing arakune bot for 1 hour
 as well as unpausing
 
+fix clear commands
