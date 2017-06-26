@@ -1,3 +1,3 @@
 exports.list = {
-  list: ["nyy", "Tukez", "Winghaven", "Zab", "womackx"]
+  list: ["nyy", "Tukez", "Winghaven", "Zab", "womackx","Haashi"]
 };
