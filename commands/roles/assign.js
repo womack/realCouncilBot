@@ -12,18 +12,10 @@ class AssignRoleCommand extends commando.Command {
     }
 
     async run(message, args) {
-        //    console.log(message.guild.roles);
-
-        var c = message.guild.roles;
-        for (var i in c) {
-            console.log(i);
+        var role = message.guild.roles.find("name", args);
+        if (role !== null && !message.member.roles.has(role.id)) {
+            message.member.addRole(role);
         }
-        console.log(c[0].name);
-        var guild = message.guild;
-        if (args === "new role")
-            guild.member(message.author).addRole('327936281747259402').catch(error => console.log(error));
-
-
     }
 }
 
