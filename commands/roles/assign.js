@@ -12,9 +12,13 @@ class AssignRoleCommand extends commando.Command {
     }
 
     async run(message, args) {
-        var role = message.guild.roles.find("name", args);
+        var role = message.guild.roles.find(checkRole);
         if (role !== null && !message.member.roles.has(role.id)) {
             message.member.addRole(role);
+        }
+
+        function checkRole(elem) {
+            return elem.name.toLowerCase() === args.toLowerCase();
         }
     }
 }
