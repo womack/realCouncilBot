@@ -19,6 +19,3 @@ bot.registry.registerCommandsIn(__dirname + "/commands");
 
 bot.login(data.key);
 console.log("Online");
-
-
-
