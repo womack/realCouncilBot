@@ -1,7 +1,5 @@
 const commando = require("discord.js-commando");
 
-
-
 class RemoveRoleCommand extends commando.Command {
     constructor(client) {
         super(client, {
