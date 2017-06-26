@@ -13,7 +13,7 @@ class AssignRoleCommand extends commando.Command {
 
     async run(message, args) {
         var role = message.guild.roles.find("name", args);
-        if (!message.member.roles.has(role.id)) {
+        if (role !== null && !message.member.roles.has(role.id)) {
             message.member.addRole(role);
         }
     }
