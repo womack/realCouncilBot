@@ -51,7 +51,10 @@ class ArakuneQuoteCommand extends commando.Command {
       message.channel.send(
         findQuote(args.replace("insult ", ""), masterQuotes.quotes)
       );
-    } else {
+    } else if (args.toLowerCase() === "ah") {
+      message.channel.send("@Klerny https://en.wikipedia.org/wiki/Ad_hominem");
+    }
+    else {
       message.channel.send(quote(masterQuotes.quotes));
     }
   }
