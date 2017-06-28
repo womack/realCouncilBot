@@ -6,8 +6,6 @@ function clearIDSpam(message, id, amount) {
     }).then((messages) => {
         messages = messages.filter((m) => String(m.author.id) === id).array().slice(0, amount);
         message.channel.bulkDelete(messages);
-        //  .array().slice(0, clearA);
-        // messages = messages.filter(m => m.author.id === filterBy).array().slice(0, clearA);
     }).catch();
 }
 function clearCommandSpam(message, command) {
@@ -30,8 +28,7 @@ class ClearCommand extends commando.Command {
     }
 
     async run(message, args) {
-
-        if (adminList.list.indexOf(message.author.username) !== -1) {
+        if (adminList.lists.list.includes(message.author.username)) {
             if (args === "!arakune") {
                 clearCommandSpam(message, args);
             }
@@ -41,5 +38,4 @@ class ClearCommand extends commando.Command {
         }
     }
 }
-
 module.exports = ClearCommand;

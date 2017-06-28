@@ -3,9 +3,6 @@ Create a realCouncil league system
     Point system   
     Pairing system
     Needs fleshing out
-Assigning particular roles
-    as well as removing
 pausing arakune bot for 1 hour
 as well as unpausing
 
-fix clear commands

@@ -1,3 +1,3 @@
-exports.list = {
+exports.lists = {
   list: ["nyy", "Tukez", "Winghaven", "Zab", "womackx"]
 };
