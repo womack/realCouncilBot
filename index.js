@@ -2,7 +2,7 @@
 const data = require("./resources/privates.js");
 var fs = require("fs");
 const commando = require("discord.js-commando");
-const bot = new commando.Client();
+const bot = new commando.Client({unknownCommandResponse: false});
 //random commands, currently only dice
 bot.registry.registerGroup("random", "Random");
 //arakoooone
