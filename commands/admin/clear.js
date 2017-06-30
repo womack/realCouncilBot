@@ -11,7 +11,7 @@ function clearIDSpam(message, id, amount) {
 function clearCommandSpam(message, command) {
     message.channel.fetchMessages({
     }).then((messages) => {
-        messages = messages.filter((m) => m.content === command);
+        messages = messages.filter((m) => m.content.includes(command));
         message.channel.bulkDelete(messages);
     }).catch();
 }
