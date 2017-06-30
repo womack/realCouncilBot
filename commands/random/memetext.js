@@ -16,10 +16,12 @@ class MemeTextCommand extends commando.Command {
         for (var i = 0; i < upperArgs.length; i++) {
             reply += upperArgs.charAt(i) + " ";
         }
-        message.channel.send(reply);
-         for (var i = 1; i < upperArgs.length; i++) {
-            message.channel.send(upperArgs.charAt(i));
+        reply += "\n";
+
+        for (var i = 1; i < upperArgs.length; i++) {
+            reply += upperArgs.charAt(i) + "\n";
         }
+        message.channel.send(reply);
     }
 }
 
