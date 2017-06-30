@@ -64,16 +64,16 @@ var getNumberFromArgs = function (args, wordToRemove) {
 };
 var allowedToRun = function () {
     return new Date().getTime() >= pauseDate.getTime();
-}
+};
 
 module.exports = {
-    allowedToRun: allowedToRun,
-    getNumberFromArgs: getNumberFromArgs,
-    setPause: setPause,
-    resetDate: resetDate,
-    isAllowed: isAllowed,
-    getQuote: getQuote,
-    markovQuote: markovQuote,
-    quote: quote,
-    findQuote: findQuote
+    allowedToRun,
+    getNumberFromArgs,
+    setPause,
+    resetDate,
+    isAllowed,
+    getQuote,
+    markovQuote,
+    quote,
+    findQuote
 };

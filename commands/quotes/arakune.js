@@ -12,10 +12,10 @@ class ArakuneQuoteCommand extends commando.Command {
   }
 
   async run(message, args) {
-    if (args != null && args.toLowerCase().includes("unpause") && arakuneFunc.isAllowed(message)) {
+    if (args !== null && args.toLowerCase().includes("unpause") && arakuneFunc.isAllowed(message)) {
       arakuneFunc.resetDate();
     }
-    else if (args != null && args.toLowerCase().includes("pause") && arakuneFunc.isAllowed(message)) {
+    else if (args !== null && args.toLowerCase().includes("pause") && arakuneFunc.isAllowed(message)) {
       arakuneFunc.setPause(arakuneFunc.getNumberFromArgs(args, "pause"));
     }
     else if (arakuneFunc.allowedToRun()) {
