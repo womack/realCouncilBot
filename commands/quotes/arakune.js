@@ -29,7 +29,11 @@ var findQuote = function (name, quotes) {
 
 var markovQuote = function () {
   var startNum = Math.floor(Math.random() * starters.length);
-  return markovQuotes.start(starters[startNum]).end().process();
+  var quote = markovQuotes.start(starters[startNum]).end().process();
+  if (quote.length > 2000 || quote.length < 2) {
+    quote = markovQuote();
+  }
+  return quote;
 };
 
 class ArakuneQuoteCommand extends commando.Command {
