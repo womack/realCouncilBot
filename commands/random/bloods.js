@@ -5,7 +5,7 @@ class BloodsCountdownCommand extends commando.Command {
     constructor(client) {
         super(client, {
             name: "bloods",
-            group: "countdown",
+            group: "random",
             memberName: "bloods",
             description: "Countdown till bloods unban"
         });

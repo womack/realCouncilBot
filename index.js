@@ -11,8 +11,6 @@ bot.registry.registerGroup("quotes", "Quotes");
 bot.registry.registerGroup("admin", "Admin");
 //roles functionality
 bot.registry.registerGroup("roles", "Roles");
-//roles functionality
-bot.registry.registerGroup("countdown", "Countdown");
 //default commands, not sure if beneficial
 bot.registry.registerDefaults();
 //registering all the commands in the directory
