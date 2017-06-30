@@ -1,9 +1,12 @@
 const commando = require("discord.js-commando");
 const masterQuotes = require("../../resources/quotes.js");
-var Markovchain = require("markovchain");
-var fs = require("fs");
-var markovQuotes = new Markovchain(fs.readFileSync("resources/arakune.txt", "utf8"));
-var starters = ["im", "i", "the", "Im", "The", "we"];
+const Markovchain = require("markovchain");
+const fs = require("fs");
+const markovQuotes = new Markovchain(fs.readFileSync("resources/arakune.txt", "utf8"));
+const starters = ["im", "i", "the", "Im", "The", "we"];
+const utilityMethods = require("../../utility.js");
+const adminList = require("../../resources/adminList.js");
+var pauseDate = new Date();
 
 var quote = function (quotesInput) {
   return quotesInput[Math.floor(Math.random() * quotesInput.length)];
@@ -36,30 +39,44 @@ var markovQuote = function () {
   return quote;
 };
 
+
+var getQuote = function (args) {
+  if (args.includes("markov")) {
+    return markovQuote();
+  }
+  else if (args.includes("insult")) {
+    return findQuote(args.replace("insult ", ""), masterQuotes.quotes);
+  }
+  else {
+    return quote(masterQuotes.quotes);
+  }
+};
+var isAllowed = function (message) {
+  return adminList.list.includes(message.author.username);
+};
+
 class ArakuneQuoteCommand extends commando.Command {
   constructor(client) {
     super(client, {
       name: "arakune",
       group: "quotes",
       memberName: "arakune",
-      description:
-      "Spouts a glorious Arakune quote!\n Use insult <name> to refine your quote!"
+      description: "Spouts a glorious Arakune quote!\n Use insult <name> to refine your quote!"
     });
   }
 
   async run(message, args) {
-    if (args.includes("markov")) {
-      message.channel.send(markovQuote());
+
+
+    if (args != null && args.toLowerCase().includes("unpause") && isAllowed(message)) {
+      pauseDate = new Date();
     }
-    else if (args.includes("insult")) {
-      message.channel.send(
-        findQuote(args.replace("insult ", ""), masterQuotes.quotes)
-      );
-    } else if (args.toLowerCase() === "ah") {
-      message.channel.send("https://en.wikipedia.org/wiki/Ad_hominem");
+    else if (args != null && args.toLowerCase().includes("pause") && isAllowed(message)) {
+      pauseDate = new Date();
+      pauseDate.setHours(pauseDate.getHours() + utilityMethods.getNumberFromArgs(args.toLowerCase(), "pause"));
     }
-    else {
-      message.channel.send(quote(masterQuotes.quotes));
+    else if (utilityMethods.allowedToRun(pauseDate)) {
+      message.channel.send(getQuote(args));
     }
   }
 }

@@ -5,7 +5,7 @@ To use this bot you'll need to create a file called "privates.js" in the resourc
 Most of the bot is interchangeable with the data in the resources folder if you don't want to use Arakune as a specimen.
 
 
-#Instructions
+# Instructions
 npm install 
 node --harmony .
 

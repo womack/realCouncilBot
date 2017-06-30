@@ -1,3 +1,1 @@
-exports.lists = {
-  list: ["nyy", "Tukez", "Winghaven", "Zab", "womackx"]
-};
+module.exports = { list: ["nyy", "womackx"] };
