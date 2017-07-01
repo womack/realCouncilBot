@@ -22,12 +22,12 @@ describe('Arakune Find Quote Tests', function () {
     describe('#God quote', function () {
         it('Given a word that matches arakunes name, should spout default message', function () {
             var tmpList = ["bob", "jeff is cool", "arakune"];
-            assert.("i'd never insult a god", arakuneFunc.findQuote("arak", tmpList));
+            assert.equal("i'd never insult a god", arakuneFunc.findQuote("arak", tmpList));
         })
     })
     describe("Markov returns something", function () {
-        if ("Should just return something", function () {
-            assert.equal(arakuneFunc.markovQuote().length
+        it("Should just return something", function () {
+            assert.notEqual(arakuneFunc.markovQuote().length, 0);
         })
-    }
+    })
 });
