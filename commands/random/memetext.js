@@ -18,8 +18,8 @@ class MemeTextCommand extends commando.Command {
         }
         reply += "\n";
 
-        for (var i = 1; i < upperArgs.length; i++) {
-            reply += upperArgs.charAt(i) + "\n";
+        for (var j = 1; j < upperArgs.length; j++) {
+            reply += upperArgs.charAt(j) + "\n";
         }
         message.channel.send(reply);
     }
