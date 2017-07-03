@@ -1,6 +1,6 @@
 const commando = require("discord.js-commando");
-var countDownDate = new Date("July 14, 2017 20:37:25").getTime();
-
+//var countDownDate = new Date("July 14, 2017 20:37:25").getTime();
+var countDownDate = new Date("July 3, 2017 00:00:00").getTime();
 class BloodsCountdownCommand extends commando.Command {
     constructor(client) {
         super(client, {
@@ -19,7 +19,10 @@ class BloodsCountdownCommand extends commando.Command {
         var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-        message.channel.send(args + " " + days + " DAYS " + hours + " HOURS " + minutes + " MINUTES " + seconds + " SECONDS until bloods is back " + args);
+        if (days <= 0)
+            message.channel.send(args + " " + days + " DAYS " + hours + " HOURS " + minutes + " MINUTES " + seconds + " SECONDS until bloods is back " + args);
+        else
+            message.channel.send("He's back!!");
     }
 }
 
