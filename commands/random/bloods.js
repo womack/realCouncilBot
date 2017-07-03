@@ -7,7 +7,7 @@ class BloodsCountdownCommand extends commando.Command {
             name: "bloods",
             group: "random",
             memberName: "bloods",
-            description: "Countdown till bloods unban"
+            description: "Countdown till bloods unmute"
         });
 
     }
@@ -20,7 +20,7 @@ class BloodsCountdownCommand extends commando.Command {
         var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
         if (days <= 0)
-            message.channel.send(args + " " + days + " DAYS " + hours + " HOURS " + minutes + " MINUTES " + seconds + " SECONDS until bloods is back " + args);
+            message.channel.send(args + " " + days + " DAYS " + hours + " HOURS " + minutes + " MINUTES " + seconds + " SECONDS UNTIL B L O O D S IS BACK" + args);
         else
             message.channel.send("He's back!!");
     }
