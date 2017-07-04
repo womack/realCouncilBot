@@ -2,7 +2,7 @@
 const data = require("./resources/privates.js");
 var fs = require("fs");
 const commando = require("discord.js-commando");
-const bot = new commando.Client({unknownCommandResponse: false});
+const bot = new commando.Client({ unknownCommandResponse: false });
 //random commands, currently only dice
 bot.registry.registerGroup("random", "Random");
 //arakoooone
@@ -17,3 +17,6 @@ bot.registry.registerDefaults();
 bot.registry.registerCommandsIn(__dirname + "/commands");
 bot.login(data.key);
 console.log("Online");
+process.on("unhandledRejection", err => {
+    console.error("Uncaught Promise Error: \n" + err.stack);
+});
