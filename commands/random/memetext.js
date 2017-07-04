@@ -11,7 +11,7 @@ class MemeTextCommand extends commando.Command {
     }
 
     async run(message, args) {
-        var reply = "\n";
+        var reply = "";
         var upperArgs = args.toUpperCase();
         for (var i = 0; i < upperArgs.length; i++) {
             reply += upperArgs.charAt(i) + " ";

@@ -19,10 +19,11 @@ class BloodsCountdownCommand extends commando.Command {
         var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         var seconds = Math.floor((distance % (1000 * 60)) / 1000);
-        if (days <= 0)
+        if (days <= 0) {
             message.channel.send(args + " " + days + " DAYS " + hours + " HOURS " + minutes + " MINUTES " + seconds + " SECONDS UNTIL B L O O D S IS BACK" + args);
-        else
+        } else {
             message.channel.send("He's back!!");
+        }
     }
 }
 
