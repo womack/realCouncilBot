@@ -16,7 +16,9 @@ bot.registry.registerDefaults();
 //registering all the commands in the directory
 bot.registry.registerCommandsIn(__dirname + "/commands");
 bot.login(data.key);
+
 console.log("Online");
-process.on("unhandledRejection", err => {
+
+process.on("unhandledRejection", (err) => {
     console.error("Uncaught Promise Error: \n" + err.stack);
 });
