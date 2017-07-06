@@ -1,6 +1,6 @@
 const commando = require("discord.js-commando");
-//var countDownDate = new Date("July 14, 2017 20:37:25").getTime();
-var countDownDate = new Date("July 3, 2017 00:00:00").getTime();
+var countDownDate = new Date("July 14, 2017 20:37:25").getTime();
+
 class BloodsCountdownCommand extends commando.Command {
     constructor(client) {
         super(client, {
