@@ -10,7 +10,7 @@ let markovQuote = function (name) {
         markovQuotes = new Markovchain(fs.readFileSync(`resources/quotes/${name}.txt`, "utf8"));
     }
     catch (err) { }
-    if (markovQuotes == null || markovQuotes == undefined || !notScared.includes(name)) {
+    if (markovQuotes == null || markovQuotes == undefined || !notScared.includes(name.toLowerCase())) {
         return "Not found, or too scared";
     }
     const startNum = Math.floor(Math.random() * starters.length);
