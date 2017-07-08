@@ -12,13 +12,10 @@ class RemoveRoleCommand extends commando.Command {
     }
 
     async run(message, args) {
-        function checkRole(elem) {
-            return elem.name.toLowerCase() === args.toLowerCase();
-        }
-        var role = message.guild.roles.find(checkRole);
+        let role = message.guild.roles.find((role) => role.name.toLowerCase() === args.toLowerCase());
         if (role !== null && message.member.roles.has(role.id)) {
             message.member.removeRole(role).catch();
-        }        
+        }
     }
 }
 

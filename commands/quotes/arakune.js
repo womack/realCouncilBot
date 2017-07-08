@@ -12,11 +12,11 @@ class ArakuneQuoteCommand extends commando.Command {
   }
 
   async run(message, args) {
-    if (args !== null && args.toLowerCase().includes("unpause") && arakuneFunc.isAllowed(message)) {
+    if (args !== null && args.toLowerCase().includes("unpause") && arakuneFunc.isAllowed(message.author.username)) {
       arakuneFunc.resetDate();
     }
-    else if (args !== null && args.toLowerCase().includes("pause") && arakuneFunc.isAllowed(message)) {
-      arakuneFunc.setPause(arakuneFunc.getNumberFromArgs(args, "pause"));
+    else if (args !== null && args.toLowerCase().includes("pause") && arakuneFunc.isAllowed(message.author.username)) {
+      arakuneFunc.setPause(arakuneFunc.getNumberFromArgs(args));
     }
     else if (arakuneFunc.allowedToRun()) {
       message.channel.send(arakuneFunc.getQuote(args));

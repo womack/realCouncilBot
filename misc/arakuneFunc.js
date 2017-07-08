@@ -4,37 +4,36 @@ const fs = require("fs");
 const markovQuotes = new Markovchain(fs.readFileSync("resources/arakune.txt", "utf8"));
 const starters = ["im", "i", "the", "Im", "The", "we"];
 const adminList = require("../resources/adminList.js");
-var pauseDate = new Date();
+const pauseDate = new Date();
 
-var quote = function (quotesInput) {
+let quote = function (quotesInput) {
     return quotesInput[Math.floor(Math.random() * quotesInput.length)];
 };
-var findQuote = function (name, quotes) {
-    var tmpquotes = [];
+
+let findQuote = function (name, quotes) {
+    let tmpQuotes = [];
     if (name.includes("arak")) {
-        tmpquotes.push("i'd never insult a god");
+        tmpQuotes.push("i'd never insult a god");
     }
     else {
-        for (var i = 0; i < quotes.length; i++) {
-            if (quotes[i].toLowerCase().includes(name.toLowerCase())) {
-                tmpquotes.push(quotes[i]);
-            }
-        }
-        if (tmpquotes.length < 1) {
-            tmpquotes.push("idk who that even is");
+        tmpQuotes = quotes.filter((a) => a.toLowerCase().includes(name.toLowerCase()));
+        if (tmpQuotes.length < 1) {
+            tmpQuotes.push("idk who that even is");
         }
     }
-    return quote(tmpquotes);
+    return quote(tmpQuotes);
 };
-var markovQuote = function () {
-    var startNum = Math.floor(Math.random() * starters.length);
-    var quote = markovQuotes.start(starters[startNum]).end().process();
+
+let markovQuote = function () {
+    const startNum = Math.floor(Math.random() * starters.length);
+    let quote = markovQuotes.start(starters[startNum]).end().process();
     if (quote.length > 2000 || quote.length < 2) {
         quote = markovQuote();
     }
     return quote;
 };
-var getQuote = function (args) {
+
+let getQuote = function (args) {
     if (args.includes("markov")) {
         return markovQuote();
     }
@@ -45,25 +44,25 @@ var getQuote = function (args) {
         return quote(masterQuotes.quotes);
     }
 };
-var isAllowed = function (message) {
-    return adminList.list.includes(message.author.username);
+
+let isAllowed = function (username, list = adminList.list) {
+    return list.includes(username);
 };
-var resetDate = function () {
+
+let resetDate = function () {
     pauseDate = new Date();
 };
-var setPause = function (duration) {
-    pauseDate.setHours(pauseDate.getHours() + duration);
 
+let setPause = function (duration) {
+    pauseDate.setHours(pauseDate.getHours() + duration);
 };
-var getNumberFromArgs = function (args, wordToRemove) {
-    var tmp = parseInt(args.toLowerCase().replace(wordToRemove, "").trim());
-    if (isNaN(tmp) || tmp <= 0) {
-        tmp = 1;
-    }
-    return tmp;
+
+let getNumberFromArgs = function (args) {
+    return parseInt(args.replace(/[A-|a-z$-]/g, ""));
 };
-var allowedToRun = function () {
-    return new Date().getTime() >= pauseDate.getTime();
+
+let allowedToRun = function (date = pauseDate) {
+    return new Date().getTime() >= date.getTime();
 };
 
 module.exports = {
