@@ -7,7 +7,7 @@ let memeText = function (text) {
         reply += "\n" + text.charAt(i);
     }
     return reply.toUpperCase();
-}
+};
 
 module.exports = {
     memeText

@@ -1,6 +1,6 @@
 const masterQuotes = require("../resources/quotes.js");
 const adminList = require("../resources/adminList.js");
-const pauseDate = new Date();
+let pauseDate = new Date();
 
 let quote = function (quotesInput) {
     return quotesInput[Math.floor(Math.random() * quotesInput.length)];

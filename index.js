@@ -1,6 +1,5 @@
 //file require for auth key since i'm not pushing it to git
 const data = require("./resources/privates.js");
-var fs = require("fs");
 const commando = require("discord.js-commando");
 const bot = new commando.Client({ unknownCommandResponse: false });
 //random commands
