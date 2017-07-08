@@ -1,5 +1,5 @@
 const commando = require("discord.js-commando");
-const arakuneFunc = require("../../misc/arakuneFunc.js");
+const arakuneFunc = require("../../misc/arakuneFunc");
 
 class ArakuneQuoteCommand extends commando.Command {
   constructor(client) {

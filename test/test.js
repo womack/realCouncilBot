@@ -1,8 +1,8 @@
 const assert = require("assert");
-const arakuneFunc = require("../misc/arakuneFunc.js");
+const arakuneFunc = require("../misc/arakuneFunc");
+const memeFunc = require("../misc/memeTextFunc");
 
 describe("Arakune Find Quote Tests", function () {
-
     describe("#Correct list", function () {
         it("Given a set of quotes and a word to search, it should return the correct one.", function () {
             let tmpList = ["bob", "jeff is cool", "arakune"];
@@ -51,5 +51,14 @@ describe("Arakune Find Quote Tests", function () {
             assert.equal(arakuneFunc.isAllowed("arakune"), false);
         });
     });
+});
 
+describe("MemeText Tests", function () {
+    describe("#Correct text", function () {
+        it("Given an input it should create a memetext representation", function () {
+            assert.equal(memeFunc.memeText("bob"), "B O B \nO\nB");
+            assert.equal(memeFunc.memeText("jeff"), "J E F F \nE\nF\nF");
+            assert.equal(memeFunc.memeText("123"), "1 2 3 \n2\n3");
+        });
+    });
 });
