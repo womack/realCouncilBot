@@ -18,7 +18,7 @@ class MarkovCommand extends commando.Command {
             reply = markovFunc.listMarkovs();
         }
         else {
-            reply = markovFunc.markovQuote(args);
+            reply = markovFunc.startQuote(markovFunc.searchFiles(args));
         }
         message.channel.send(reply);
     }
