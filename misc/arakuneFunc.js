@@ -1,8 +1,4 @@
 const masterQuotes = require("../resources/quotes.js");
-const Markovchain = require("markovchain");
-const fs = require("fs");
-const markovQuotes = new Markovchain(fs.readFileSync("resources/arakune.txt", "utf8"));
-const starters = ["im", "i", "the", "Im", "The", "we"];
 const adminList = require("../resources/adminList.js");
 const pauseDate = new Date();
 
@@ -24,20 +20,8 @@ let findQuote = function (name, quotes) {
     return quote(tmpQuotes);
 };
 
-let markovQuote = function () {
-    const startNum = Math.floor(Math.random() * starters.length);
-    let quote = markovQuotes.start(starters[startNum]).end().process();
-    if (quote.length > 2000 || quote.length < 2) {
-        quote = markovQuote();
-    }
-    return quote;
-};
-
 let getQuote = function (args) {
-    if (args.includes("markov")) {
-        return markovQuote();
-    }
-    else if (args.includes("insult")) {
+    if (args.includes("insult")) {
         return findQuote(args.replace("insult ", ""), masterQuotes.quotes);
     }
     else {
@@ -72,7 +56,6 @@ module.exports = {
     resetDate,
     isAllowed,
     getQuote,
-    markovQuote,
     quote,
     findQuote
 };

@@ -9,7 +9,6 @@ class BloodsCountdownCommand extends commando.Command {
             memberName: "bloods",
             description: "Countdown till bloods unmute"
         });
-
     }
 
     async run(message, args) {
@@ -19,9 +18,7 @@ class BloodsCountdownCommand extends commando.Command {
         let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
         let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
         let seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
         message.channel.send(args + " " + days + " DAYS " + hours + " HOURS " + minutes + " MINUTES " + seconds + " SECONDS UNTIL B L O O D S IS UNMUTED" + args);
-
     }
 }
 

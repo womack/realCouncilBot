@@ -3,9 +3,9 @@ const data = require("./resources/privates.js");
 var fs = require("fs");
 const commando = require("discord.js-commando");
 const bot = new commando.Client({ unknownCommandResponse: false });
-//random commands, currently only dice
+//random commands
 bot.registry.registerGroup("random", "Random");
-//arakoooone
+//arakoooone and markov
 bot.registry.registerGroup("quotes", "Quotes");
 //admin functionality
 bot.registry.registerGroup("admin", "Admin");
@@ -15,10 +15,6 @@ bot.registry.registerGroup("roles", "Roles");
 bot.registry.registerDefaults();
 //registering all the commands in the directory
 bot.registry.registerCommandsIn(__dirname + "/commands");
+
 bot.login(data.key);
-
 console.log("Online");
-
-process.on("unhandledRejection", (err) => {
-    console.error("Uncaught Promise Error: \n" + err.stack);
-});

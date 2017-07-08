@@ -1,6 +1,7 @@
 const assert = require("assert");
 const arakuneFunc = require("../misc/arakuneFunc");
 const memeFunc = require("../misc/memeTextFunc");
+const markovFunc = require("../misc/markovFunc");
 
 describe("Arakune Find Quote Tests", function () {
     describe("#Correct list", function () {
@@ -29,7 +30,7 @@ describe("Arakune Find Quote Tests", function () {
 
     describe("Markov returns something", function () {
         it("Should just return something, cant test actual output", function () {
-            assert.notEqual(arakuneFunc.markovQuote().length, 0);
+            assert.notEqual(markovFunc.markovQuote("arakune").length, 0);
         });
     });
 
