@@ -30,7 +30,7 @@ describe("Arakune Find Quote Tests", function () {
 
     describe("Markov returns something", function () {
         it("Should just return something, cant test actual output", function () {
-            assert.notEqual(markovFunc.markovQuote("arakune").length, 0);
+            assert.notEqual(markovFunc.startQuote("arakune").length, 0);
         });
     });
 
