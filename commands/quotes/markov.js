@@ -1,7 +1,8 @@
 const commando = require("discord.js-commando");
 const markovFunc = require("../../misc/markovFunc");
 
-class DiceRollCommand extends commando.Command {
+
+class MarkovCommand extends commando.Command {
     constructor(client) {
         super(client, {
             name: "markov",
@@ -12,8 +13,15 @@ class DiceRollCommand extends commando.Command {
     }
 
     async run(message, args) {
-        message.channel.send(markovFunc.markovQuote(args));
+        let reply = "";
+        if (args === "list") {
+            reply = markovFunc.listMarkovs();
+        }
+        else {
+            reply = markovFunc.markovQuote(args);
+        }
+        message.channel.send(reply);
     }
 }
 
-module.exports = DiceRollCommand;
+module.exports = MarkovCommand;
