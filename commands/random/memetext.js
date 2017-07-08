@@ -1,5 +1,5 @@
 const commando = require("discord.js-commando");
-
+const memeFunc = require("../../misc/memeTextFunc");
 class MemeTextCommand extends commando.Command {
     constructor(client) {
         super(client, {
@@ -11,17 +11,7 @@ class MemeTextCommand extends commando.Command {
     }
 
     async run(message, args) {
-        var reply = "";
-        var upperArgs = args.toUpperCase();
-        for (var i = 0; i < upperArgs.length; i++) {
-            reply += upperArgs.charAt(i) + " ";
-        }
-        reply += "\n";
-
-        for (var j = 1; j < upperArgs.length; j++) {
-            reply += upperArgs.charAt(j) + "\n";
-        }
-        message.channel.send(reply);
+        message.channel.send(memeFunc.memeText(args));
     }
 }
 
