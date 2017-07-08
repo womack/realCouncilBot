@@ -1,7 +1,7 @@
 const Markovchain = require("markovchain");
 const fs = require("fs");
 const starters = ["im", "i", "the", "Im", "The", "we"];
-const notScared = ["womackx", "randler", "bloods", "arakune", "rifletown", "213213", "hansalel"];
+const notScared = ["womackx", "randler", "bloods", "arakune", "rifletown", "213213", "hansalel", "maylon"];
 
 let startQuote = function (name) {
     let markovQuotes = null;
