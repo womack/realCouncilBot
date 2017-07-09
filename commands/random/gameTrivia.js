@@ -1,7 +1,10 @@
 const commando = require("discord.js-commando");
 const sim = require("string-similarity");
 const request = require("request");
+const Entities = require('html-entities').XmlEntities;
+const entities = new Entities();
 let cur = {};
+
 
 let shuffleArray = function (array) {
     let currentIndex = array.length, tempVal, randomIndex;
@@ -13,13 +16,15 @@ let shuffleArray = function (array) {
         array[randomIndex] = tempVal;
     }
     return array;
-}
+};
 
 let decodeEntity = function (str) {
-    return str.replace(/&#(\d+);/g, function (match, dec) {
+    return entities.decode(str.replace(/&#(\d+);/g, function (match, dec) {
         return String.fromCharCode(dec);
-    });
-}
+    })).replace(/&quot;/g, "\"").replace(/&#039;/g, "\'");
+};
+
+
 
 class TriviaCommand extends commando.Command {
     constructor(client) {
@@ -37,9 +42,9 @@ class TriviaCommand extends commando.Command {
         let qr = request("https://opentdb.com/api.php?amount=1&category=15", function (err, res, body) {
             if (err) return console.log(err);
             let quiz = JSON.parse(body);
-            let correctAnswer = decodeEntity(quiz.results[0].correct_answer).replace(/&quot;/g, "\"").replace(/&#039;/g, "\'");
-            let answers = quiz.results[0].incorrect_answers.map((a) => decodeEntity(a).replace(/&quot;/g, "\"").replace(/&#039;/g, "\'"));
-            let question = decodeEntity(quiz.results[0].question).replace(/&quot;/g, "\"").replace(/&#039;/g, "\'");
+            let correctAnswer = decodeEntity(quiz.results[0].correct_answer);
+            let answers = quiz.results[0].incorrect_answers.map((a) => decodeEntity(a));
+            let question = decodeEntity(quiz.results[0].question);
             answers.push(correctAnswer);
             answers = shuffleArray(answers);
             let embed = {
