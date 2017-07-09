@@ -12,7 +12,7 @@ class CheckIPCommand extends commando.Command {
 
     }
 
-    async run(message, args) {
+    async run(message) {
         if (message.author.username === "womackx") {
             publicIp.v4().then((ip) => {
                 message.reply(ip);
