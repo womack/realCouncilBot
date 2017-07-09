@@ -1,7 +1,7 @@
 const commando = require("discord.js-commando");
 const sim = require("string-similarity");
 const request = require("request");
-const Entities = require('html-entities').XmlEntities;
+const Entities = require("html-entities").XmlEntities;
 const entities = new Entities();
 let cur = {};
 
@@ -24,8 +24,6 @@ let decodeEntity = function (str) {
     })).replace(/&quot;/g, "\"").replace(/&#039;/g, "\'");
 };
 
-
-
 class TriviaCommand extends commando.Command {
     constructor(client) {
         super(client, {
@@ -36,11 +34,11 @@ class TriviaCommand extends commando.Command {
         });
     }
 
-    async run(message, args) {
-        if (cur[message.channel.id]) return send("**Wait for the current trivia game to complete**")
+    async run(message) {
+        if (cur[message.channel.id]) { return message.channel.send("**Wait for the current trivia game to complete**"); }
         cur[message.channel.id] = true;
-        let qr = request("https://opentdb.com/api.php?amount=1&category=15", function (err, res, body) {
-            if (err) return console.log(err);
+        request("https://opentdb.com/api.php?amount=1&category=15", function (err, res, body) {
+            if (err) { return console.log(err); }
             let quiz = JSON.parse(body);
             let correctAnswer = decodeEntity(quiz.results[0].correct_answer);
             let answers = quiz.results[0].incorrect_answers.map((a) => decodeEntity(a));
@@ -73,16 +71,16 @@ class TriviaCommand extends commando.Command {
             message.channel.send("", {
                 embed
             });
-            const collector = message.channel.createCollector(m => m.author.bot === false, {
+            const collector = message.channel.createCollector((m) => m.author.bot === false, {
                 time: 30000,
             });
-            collector.on('collect', (m) => {
+            collector.on("collect", (m) => {
                 let same = sim.compareTwoStrings(correctAnswer.toLowerCase(), m.content.toLowerCase());
                 if (same > .65) {
                     collector.stop([m.author.username, m.author.id]);
                 }
             });
-            collector.on('end', (collected, reason) => {
+            collector.on("end", (collected, reason) => {
                 delete cur[message.channel.id];
                 if (reason === "time") {
                     message.channel.send("The 30 seconds are up, the correct answer was: " + correctAnswer);

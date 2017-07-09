@@ -2,13 +2,13 @@
 const commando = require("discord.js-commando");
 const jimp = require("jimp");
 
-class SuckerPunchCommand extends commando.Command {
+class KickCommand extends commando.Command {
     constructor(client) {
         super(client, {
-            name: "punch",
+            name: "kick",
             group: "picturemanip",
-            memberName: "punch",
-            description: "Punch someone! @Mention"
+            memberName: "kick",
+            description: "Kick someone under a bus! @Mention"
         });
     }
     async run(message) {
@@ -16,17 +16,18 @@ class SuckerPunchCommand extends commando.Command {
             let authorURL = message.author.displayAvatarURL.endsWith(".webp") ? message.author.displayAvatarURL.slice(0, -5) + ".png" : message.author.displayAvatarURL;
             let targetPerson = message.mentions.users.first();
             let targetURL = targetPerson.displayAvatarURL.endsWith(".webp") ? targetPerson.displayAvatarURL.slice(0, -5) + ".png" : targetPerson.displayAvatarURL;
-            jimp.read("./resources/images/person-fight-punch_318-29637.jpg", (err, image) => {
+            jimp.read("./resources/images/kick.jpg", (err, image) => {
                 if (err) { return console.log(err); }
                 jimp.read(authorURL, (err, author) => {
                     if (err) { return console.log(err); }
-                    author.resize(100, 100);
+                    author.resize(80, 80);
+                    author.rotate(-12);
                     jimp.read(targetURL, (err, target) => {
                         if (err) { return console.log(err); }
-                        target.resize(100, 100);
-                        target.rotate(-4);
-                        image.composite(author, 110, 30);
-                        image.composite(target, 400, 40);
+                        target.resize(80, 80);
+                        target.rotate(-8);
+                        image.composite(author, 125, 210);
+                        image.composite(target, 450, 345);
                         image.getBuffer(jimp.AUTO, (err, buff) => {
                             if (err) { return console.log(err); }
                             message.channel.sendFile(buff);
@@ -38,4 +39,4 @@ class SuckerPunchCommand extends commando.Command {
     }
 }
 
-module.exports = SuckerPunchCommand;
+module.exports = KickCommand;
