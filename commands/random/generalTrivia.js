@@ -6,9 +6,9 @@ let cur = {};
 class TriviaCommand extends commando.Command {
     constructor(client) {
         super(client, {
-            name: "trivia",
+            name: "generaltrivia",
             group: "random",
-            memberName: "trivia",
+            memberName: "generaltrivia",
             description: "Hosts a trivia game!"
         });
 
@@ -29,7 +29,7 @@ class TriviaCommand extends commando.Command {
                     "icon_url": message.guild.iconURL
                 },
                 "fields": [{
-                    "name": "Catagory",
+                    "name": "Category",
                     "value": quiz[0].category.title
                 }, {
                     "name": "Question",
