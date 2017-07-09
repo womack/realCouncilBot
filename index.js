@@ -10,7 +10,9 @@ bot.registry.registerGroup("quotes", "Quotes");
 bot.registry.registerGroup("admin", "Admin");
 //roles functionality
 bot.registry.registerGroup("roles", "Roles");
-//default commands, not sure if beneficial
+//picture manipulation
+bot.registry.registerGroup("picturemanip", "PictureManip");
+//default commands
 bot.registry.registerDefaults();
 //registering all the commands in the directory
 bot.registry.registerCommandsIn(__dirname + "/commands");

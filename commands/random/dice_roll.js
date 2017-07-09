@@ -8,7 +8,6 @@ class DiceRollCommand extends commando.Command {
             memberName: "roll",
             description: "Rolls a die"
         });
-
     }
 
     async run(message, args) {

@@ -1,21 +1,21 @@
 const commando = require("discord.js-commando");
-var request = require('request');
+const request = require("request");
 
 
 let makeStrawPoll = function (strawObj, message) {
     request.post({
-        url: 'https://strawpoll.me/api/v2/polls',
+        url: "https://strawpoll.me/api/v2/polls",
         followAllRedirects: true,
         body: strawObj,
         json: true
     },
         function (error, response, body) {
-            if (!error && response.statusCode == 200) {
+            if (!error && response.statusCode === 200) {
                 message.channel.send(`https://strawpoll.me/${body.id}`);
             }
         }
     );
-}
+};
 
 let argSplit = function (args) {
     let strawObj = {};
@@ -28,7 +28,7 @@ let argSplit = function (args) {
         strawObj = "Incorrect format, Title and two options are required";
     }
     return strawObj;
-}
+};
 
 class StrawPollCommand extends commando.Command {
     constructor(client) {
@@ -52,8 +52,3 @@ class StrawPollCommand extends commando.Command {
 }
 
 module.exports = StrawPollCommand;
-
-
-
-
-
