@@ -10,7 +10,7 @@ let markovQuote = function (markovQuotes) {
         quote = markovQuote(markovQuotes);
     }
     return quote;
-}
+};
 
 let startQuote = function (name) {
     let markovQuotes = null;
