@@ -14,7 +14,7 @@ class TheSearchCommand extends commando.Command {
     async run(message, args) {
         if (args) {
             Jimp.read("./resources/images/thesearch.png", function (err, image) {
-                if (err) console.error(err);
+                if (err) { console.error(err); }
                 var text = new Jimp(160, 70, function (err, text) {
                     Jimp.loadFont('./resources/fonts/SFtoon.fnt').then(function (font) {
                         text.print(font, 0, 0, args, 130);

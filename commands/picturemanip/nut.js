@@ -15,7 +15,7 @@ class NutCommand extends commando.Command {
         if (args) {
             jimp.read('./resources/images/nut.jpg', (err, image) => {
                 if (err) return console.log(err);
-                var text = new jimp(630, 150, function (err, text) {
+                let text = new jimp(630, 150, function (err, text) {
                     if (err) return console.log(err);
                     jimp.loadFont(jimp.FONT_SANS_32_BLACK).then(function (font) {
                         text.print(font, 0, 0, args, 650);

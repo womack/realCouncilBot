@@ -13,14 +13,14 @@ class NutCommand extends commando.Command {
     async run(message, args) {
         if (args) {
             jimp.read('./resources/images/megu1.png', (err, image) => {
-                if (err) return console.log(err);
-                var text = new jimp(1280, 800, function (err, text) {
-                    if (err) return console.log(err);
+                if (err) { return console.log(err); }
+                let text = new jimp(1280, 800, function (err, text) {
+                    if (err) { return console.log(err); }
                     jimp.loadFont(jimp.FONT_SANS_128_WHITE).then(function (font) {
                         text.print(font, 0, 0, args, 1300);
                         image.composite(text, 50, 430);
                         image.getBuffer(jimp.AUTO, (err, buffer) => {
-                            if (err) return console.log(err);
+                            if (err) { return console.log(err); }
                             message.channel.sendFile(buffer);
                         });
                     });
