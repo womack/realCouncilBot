@@ -3,7 +3,6 @@ const sim = require("string-similarity");
 const request = require("request");
 let cur = {};
 
-
 let shuffleArray = function (array) {
     let currentIndex = array.length, tempVal, randomIndex;
     while (0 !== currentIndex) {
@@ -34,7 +33,7 @@ class TriviaCommand extends commando.Command {
             let correctAnswer = quiz.results[0].correct_answer.toLowerCase().replace(/[^\x00-\x7F]/g, "");
             let question = quiz.results[0].question.replace(/[^\x00-\x7F]/g, "").replace(/[^A-Za-z 0-9 \.,\?""!@#\$%\^&\*\(\)-_=\+;:<>\/\\\|\}\{\[\]`~]*/g, '').replace(/[\uE000-\uF8FF]/g, "").replace(/[^A-Za-z 0-9 \.,\?""!@#\$%\^&\*\(\)-_=\+;:<>\/\\\|\}\{\[\]`~]*/g, "");
             question = question.replace(/&quot;/g, "\"").replace(/&#039;/g, "\'");
-            let answers = quiz.results[0].incorrect_answers.map((a) => a.replace(/[^\x00-\x7F]/g, ""));
+            let answers = quiz.results[0].incorrect_answers.map((a) => a.replace(/[^\x00-\x7F]/g, "").replace(/&quot;/g, "\"").replace(/&#039;/g, "\'"));
             answers.push(correctAnswer);
             answers = shuffleArray(answers);
             let embed = {
