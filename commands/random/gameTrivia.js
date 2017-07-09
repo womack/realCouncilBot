@@ -38,9 +38,6 @@ class TriviaCommand extends commando.Command {
             if (err) return console.log(err);
             let quiz = JSON.parse(body);
             let correctAnswer = decodeEntity(quiz.results[0].correct_answer).replace(/&quot;/g, "\"").replace(/&#039;/g, "\'");
-            //   let question = quiz.results[0].question.replace(/[^\x00-\x7F]/g, "").replace(/[^A-Za-z 0-9 \.,\?""!@#\$%\^&\*\(\)-_=\+;:<>\/\\\|\}\{\[\]`~]*/g, '').replace(/[\uE000-\uF8FF]/g, "").replace(/[^A-Za-z 0-9 \.,\?""!@#\$%\^&\*\(\)-_=\+;:<>\/\\\|\}\{\[\]`~]*/g, "");
-            //  question = question.replace(/&quot;/g, "\"").replace(/&#039;/g, "\'");
-            // let answers = quiz.results[0].incorrect_answers.map((a) => a.replace(/[^\x00-\x7F]/g, "").replace(/&quot;/g, "\"").replace(/&#039;/g, "\'"));
             let answers = quiz.results[0].incorrect_answers.map((a) => decodeEntity(a).replace(/&quot;/g, "\"").replace(/&#039;/g, "\'"));
             let question = decodeEntity(quiz.results[0].question).replace(/&quot;/g, "\"").replace(/&#039;/g, "\'");
             answers.push(correctAnswer);
