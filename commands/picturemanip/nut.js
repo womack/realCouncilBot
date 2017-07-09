@@ -1,6 +1,6 @@
 
 const commando = require("discord.js-commando");
-const Jimp = require("Jimp");
+const Jimp = require("jimp");
 
 class NutCommand extends commando.Command {
     constructor(client) {
