@@ -1,5 +1,5 @@
 const commando = require("discord.js-commando");
-const jimp = require("jimp");
+const Jimp = require("Jimp");
 
 class NutCommand extends commando.Command {
     constructor(client) {
@@ -12,14 +12,14 @@ class NutCommand extends commando.Command {
     }
     async run(message, args) {
         if (args) {
-            jimp.read('./resources/images/megu1.png', (err, image) => {
+            Jimp.read("./resources/images/megu1.png", (err, image) => {
                 if (err) { return console.log(err); }
-                let text = new jimp(1280, 800, function (err, text) {
+                let text = new Jimp(1280, 800, function (err, text) {
                     if (err) { return console.log(err); }
-                    jimp.loadFont(jimp.FONT_SANS_128_WHITE).then(function (font) {
+                    Jimp.loadFont(Jimp.FONT_SANS_128_WHITE).then(function (font) {
                         text.print(font, 0, 0, args, 1300);
                         image.composite(text, 50, 430);
-                        image.getBuffer(jimp.AUTO, (err, buffer) => {
+                        image.getBuffer(Jimp.AUTO, (err, buffer) => {
                             if (err) { return console.log(err); }
                             message.channel.sendFile(buffer);
                         });
