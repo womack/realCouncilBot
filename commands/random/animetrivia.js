@@ -27,9 +27,9 @@ let decodeEntity = function (str) {
 class AnimeTriviaCommand extends commando.Command {
     constructor(client) {
         super(client, {
-            name: "gametrivia",
+            name: "animetrivia",
             group: "random",
-            memberName: "gametrivia",
+            memberName: "animetrivia",
             description: "Hosts a trivia game!"
         });
     }
