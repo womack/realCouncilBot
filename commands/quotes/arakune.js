@@ -12,6 +12,7 @@ class ArakuneQuoteCommand extends commando.Command {
   }
 
   async run(message, args) {
+
     if (args !== null && args.toLowerCase().includes("unpause") && arakuneFunc.isAllowed(message.author.username)) {
       arakuneFunc.resetDate();
     }
@@ -21,6 +22,8 @@ class ArakuneQuoteCommand extends commando.Command {
     else if (arakuneFunc.allowedToRun()) {
       message.channel.send(arakuneFunc.getQuote(args));
     }
+
+
   }
 }
 
