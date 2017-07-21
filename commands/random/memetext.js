@@ -11,14 +11,16 @@ class MemeTextCommand extends commando.Command {
     }
 
     async run(message, args) {
-        let tmp = args.split("%");
-        if (args[1]) {
+
+        if (args.includes("%")) {
+            let tmp = args.split("%");
             let numberTmp = tmp[1].split(",");
             message.channel.send("```" + memeFunc.memeGrid(numberTmp[0], numberTmp[1], tmp[0]) + "```");
         }
         else {
             message.channel.send(memeFunc.memeText(args));
         }
+
     }
 }
 
