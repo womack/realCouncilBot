@@ -15,10 +15,16 @@ class TriviaCommand extends commando.Command {
     }
 
     async run(message) {
-        if (cur[message.channel.id]) { return message.channel.send("**Wait for the current trivia game to complete**") }
+        if (cur[message.channel.id]) {
+            return message
+                .channel
+                .send("**Wait for the current trivia game to complete**")
+        }
         cur[message.channel.id] = true;
         request("http://jservice.io/api/random", function (err, res, body) {
-            if (err) { return console.log(err); }
+            if (err) {
+                return console.log(err);
+            }
             let quiz = JSON.parse(body);
             let embed = {
                 "title": "`Random Trivia`",
@@ -28,20 +34,24 @@ class TriviaCommand extends commando.Command {
                     "name": message.guild.name,
                     "icon_url": message.guild.iconURL
                 },
-                "fields": [{
-                    "name": "Category",
-                    "value": quiz[0].category.title
-                }, {
-                    "name": "Question",
-                    "value": quiz[0].question ? quiz[0].question : "Api Error"
-                }]
+                "fields": [
+                    {
+                        "name": "Category",
+                        "value": quiz[0].category.title
+                    }, {
+                        "name": "Question",
+                        "value": quiz[0].question
+                            ? quiz[0].question
+                            : "Api Error"
+                    }
+                ]
             };
-            message.channel.send("", {
-                embed
-            });
-            const collector = message.channel.createCollector((m) => m.author.bot === false, {
-                time: 30000,
-            });
+            message
+                .channel
+                .send("", {embed});
+            const collector = message
+                .channel
+                .createCollector((m) => m.author.bot === false, {time: 30000});
             collector.on("collect", (m) => {
                 let same = sim.compareTwoStrings(quiz[0].answer.toLowerCase(), m.content.toLowerCase());
                 if (same > .65) {
@@ -51,9 +61,13 @@ class TriviaCommand extends commando.Command {
             collector.on("end", (collected, reason) => {
                 delete cur[message.channel.id];
                 if (reason === "time") {
-                    message.channel.send("The 30 seconds are up, the correct answer was: " + quiz[0].answer);
+                    message
+                        .channel
+                        .send("The 30 seconds are up, the correct answer was: " + quiz[0].answer);
                 } else {
-                    message.channel.send("**Correct!** " + reason[0] + " has answered the question!");
+                    message
+                        .channel
+                        .send("**Correct!** " + reason[0] + " has answered the question!");
                 }
             });
         });

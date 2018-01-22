@@ -37,7 +37,8 @@ class AnimeTriviaCommand extends commando.Command {
     async run(message) {
         if (cur[message.channel.id]) { return message.channel.send("**Wait for the current trivia game to complete**"); }
         cur[message.channel.id] = true;
-        request("https://opentdb.com/api.php?amount=1&category=31", function (err, res, body) {
+        
+        request("https://opentdb.com/api.php?amount=1&category=31&difficulty=hard&type=multiple", function (err, res, body) {
             if (err) { return console.log(err); }
             let quiz = JSON.parse(body);
             let correctAnswer = decodeEntity(quiz.results[0].correct_answer);
